@@ -13,9 +13,9 @@ Designed with a unique role-based entry experience for HR, Developers, and casua
 - 📄 Resume download and contact section
 - 🧠 Tech stack overview and featured projects
 
-## 🔗 Live Demo
+## 🔗 Live 
 
-[#](https://your-portfolio-url.com)
+[🟢 Click Me to View the Live Site](https://personal-portfolio-gamma-nine-42.vercel.app/)
 
 ---
 
