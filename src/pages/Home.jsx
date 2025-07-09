@@ -8,7 +8,8 @@ export default function Home() {
       {/* Headings */}
       <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 leading-snug">
       
-       Hi, I’m <span className="text-blue-500">Parvesh Ahamed</span>
+       Hi, <br>
+       </br> I’m <span className="text-blue-500">Parvesh Ahamed</span>
         <br />
         <TypewriterText></TypewriterText>
       </h1>
