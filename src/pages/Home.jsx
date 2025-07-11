@@ -24,20 +24,20 @@ export default function Home() {
           <RoleBtn
             icon={<FaUserTie className="text-xl animate-pulse" />}
             label="HR / Recruiter"
-            path="/hr"
           />
         </Link>
-
-        <RoleBtn
-          icon={<FaCode className="text-xl animate-pulse" />}
-          label="Developer"
-          path="/dev"
-        />
-        <RoleBtn
-          icon={<FaUserSecret className="text-xl animate-pulse" />}
-          label="Stalker"
-          path="/stalker"
-        />
+        <Link to="/developer">
+          <RoleBtn
+            icon={<FaCode className="text-xl animate-pulse" />}
+            label="Developer"
+          />
+        </Link>
+        <Link to="stalker">
+          <RoleBtn
+            icon={<FaUserSecret className="text-xl animate-pulse" />}
+            label="Stalker"
+          />
+        </Link>
       </div>
     </div>
   );
