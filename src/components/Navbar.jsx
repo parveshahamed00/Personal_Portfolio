@@ -1,17 +1,23 @@
 import React, { useState } from "react";
-import { FaHome } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar(props) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="w-full bg-white shadow-lg fixed top-0 left-0 z-50">
+    <header
+      className={`w-full ${props.bgColor}  shadow-lg fixed top-0 left-0 z-50`}
+    >
       <nav className="max-w-7xl mx-auto px-4 sm:flex sm:items-center sm:justify-between py-3">
         {/* Logo */}
         <div className="flex items-center justify-between">
-         
-            <FaHome  size={30}/>
-        
+          <Link to="/">
+            <h2
+              className={`text-xl font-bold font-serif ${props.navLogoColor}`}
+            >
+              {"<PA/>"}
+            </h2>
+          </Link>
 
           {/* Hamburger Icon */}
           <button
@@ -61,28 +67,28 @@ function Navbar() {
         >
           <a
             href="#skills"
-            className="block py-2 text-gray-700 hover:text-blue-500"
+            className={`block py-2 ${props.textColor} ${props.textHover}`}
           >
             Skills
           </a>
           <a
             href="#achievements"
-            className="block py-2 text-gray-700 hover:text-blue-500"
+            className={`block py-2 ${props.textColor} ${props.textHover}`}
           >
             Achievements
           </a>
           <a
             href="#projects"
-            className="block py-2 text-gray-700 hover:text-blue-500"
+            className={`block py-2 ${props.textColor} ${props.textHover}`}
           >
             Projects
           </a>
           <a
-            href="#contact"
-            className="block mt-2 sm:mt-0 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition text-center"
-          >
-            Contact Me
-          </a>
+        href="#contact"
+        className={`block mt-2 sm:mt-0 ${props.btnBgColor} ${props.btnTextColor} ${props.btnHoverColor} px-4 py-2 rounded-md transition text-center`}
+      >
+        Contact Me
+      </a>
         </div>
       </nav>
     </header>
