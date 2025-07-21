@@ -6,7 +6,7 @@ function Navbar(props) {
 
   return (
     <header
-      className={`w-full ${props.bgColor}  shadow-lg fixed top-0 left-0 z-50`}
+      className={`w-full ${props.bgColor}  shadow-lg sticky top-0 left-0 z-50`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:flex sm:items-center sm:justify-between py-3">
         {/* Logo */}
@@ -22,7 +22,7 @@ function Navbar(props) {
           {/* Hamburger Icon */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="sm:hidden p-2 text-gray-600 focus:outline-none"
+            className="sm:hidden p-2 text-gray-600 focus:outline-none bg-slate-200"
             aria-label="Toggle navigation"
           >
             {menuOpen ? (
