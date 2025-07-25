@@ -1,12 +1,105 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import Navbar from "../components/Navbar";
-import { FaDownload } from "react-icons/fa";
-import { FaGraduationCap, FaSchool } from "react-icons/fa";
-import { SiBookstack } from "react-icons/si";
 import Skills from "../components/Skills";
+import { FaDownload, FaGraduationCap, FaSchool } from "react-icons/fa";
+import { SiBookstack } from "react-icons/si";
+
+// Education Component
+const Education = ({ educationRef }) => {
+  const educationData = [
+    {
+      institution: "Sadakathullah Appa College",
+      degree: "MSc in Computer Science",
+      duration: "2023 – 2025",
+      icon: <FaGraduationCap className="text-3xl text-blue-600" />,
+    },
+    {
+      institution: "Sadakathullah Appa College",
+      degree: "BSc in Information Technology",
+      duration: "2020 – 2023",
+      icon: <SiBookstack className="text-3xl text-green-600" />,
+    },
+    {
+      institution: "Bell Matric Hr. Sec. School",
+      degree: "Higher Secondary Certificate (HSC)",
+      duration: "2018 – 2020",
+      icon: <FaSchool className="text-3xl text-purple-600" />,
+    },
+  ];
+
+  return (
+    <section ref={educationRef} className="py-12 bg-gray-50">
+      <div className="max-w-4xl mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#161179]">
+          My Education
+        </h2>
+        <div className="relative">
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-[#161179] h-full"></div>
+          {educationData.map((edu, index) => (
+            <div
+              key={index}
+              className={`flex items-center mb-8 ${index % 2 === 0 ? "flex-row-reverse" : ""}`}
+            >
+              <div
+                className={`w-5/12 p-6 rounded-xl shadow-lg bg-white hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ${
+                  index % 2 === 0 ? "ml-8" : "mr-8"
+                }`}
+              >
+                <div className="flex items-center mb-2">
+                  {edu.icon}
+                  <h3 className="ml-3 text-xl font-semibold text-gray-800">{edu.degree}</h3>
+                </div>
+                <p className="text-gray-600 font-medium">{edu.institution}</p>
+                <p className="text-gray-500">{edu.duration}</p>
+              </div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-[#161179] rounded-full border-4 border-white z-10"></div>
+              <div className="w-5/12"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 function Hr() {
-  const [open, setOpen] = React.useState(null); // Changed to null for no initial open accordion
+  const skillsRef = useRef(null);
+  const educationRef = useRef(null);
+  const achievementsRef = useRef(null);
+  const projectsRef = useRef(null);
+  const contactRef = useRef(null);
+
+  const scrollToSkills = () => {
+    if (skillsRef.current) {
+      skillsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const scrollToEducation = () => {
+    if (educationRef.current) {
+      educationRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const scrollToAchievements = () => {
+    if (achievementsRef.current) {
+      achievementsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const scrollToProjects = () => {
+    if (projectsRef.current) {
+      projectsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const scrollToContact = () => {
+    if (contactRef.current) {
+      contactRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const [open, setOpen] = useState(null);
 
   const handleOpen = (value) => setOpen(open === value ? null : value);
 
@@ -21,7 +114,6 @@ function Hr() {
     window.open(fileUrl, "_blank");
   };
 
-  // Accordion data
   const accordionItems = [
     {
       id: 1,
@@ -60,40 +152,24 @@ function Hr() {
       ],
     },
   ];
-// education Data
-const educationData = [
-  {
-    institution: "Sadakathullah Appa College",
-    degree: "MSc in Computer Science",
-    duration: "2023 – 2025",
-    icon: <FaGraduationCap className="text-3xl text-blue-600" />,
-  },
-  {
-    institution: "Sadakathullah Appa College",
-    degree: "BSc in Information Technology",
-    duration: "2020 – 2023",
-    icon: <SiBookstack className="text-3xl text-green-600" />,
-  },
-  {
-    institution: "Bell Matric Hr. Sec. School",
-    degree: "Higher Secondary Certificate (HSC)",
-    duration: "2018 – 2020",
-    icon: <FaSchool className="text-3xl text-purple-600" />,
-  },
-];
+
   return (
     <div className="bg-white">
       <Navbar
-        navLogoColor="text-white"
         bgColor="bg-[#161179]"
+        navLogoColor="text-white"
         textColor="text-gray-400"
         textHover="hover:text-white"
         btnBgColor="bg-white"
         btnTextColor="text-blue-600"
         btnHoverColor="hover:bg-blue-700 hover:text-white"
+        scrollToSkills={scrollToSkills}
+        scrollToAchievements={scrollToAchievements}
+        scrollToProjects={scrollToProjects}
+        scrollToContact={scrollToContact}
       />
-      {/* hero */}
-      <section className="grid grid-cols-1 md:grid-cols-2 items-center justify-between min-h-[90vh]">
+      {/* Hero */}
+      <section className="grid grid-cols-1 md:grid-cols-2 items-center justify-between min-h-[90vh] pt-20">
         <div className="flex justify-center m-0 sm:order-2">
           <img
             src="/images/profilPic-Hr.png"
@@ -102,12 +178,8 @@ const educationData = [
           />
         </div>
         <div className="text-center max-w-xl mx-auto sm:order-1">
-          <h1
-            style={{ lineHeight: "1.3" }}
-            className="text-4xl md:text-5xl font-bold"
-          >
-            I am <span className="text-[#161179]">Parvesh Ahamed</span> thank
-            you for visiting my profile
+          <h1 style={{ lineHeight: "1.3" }} className="text-4xl md:text-5xl font-bold">
+            I am <span className="text-[#161179]">Parvesh Ahamed</span> thank you for visiting my profile
           </h1>
           <p className="text-lg text-gray-600 mt-3">
             Fullstack Developer. AI Enthusiast. UI Engineer.
@@ -122,39 +194,31 @@ const educationData = [
           </button>
         </div>
       </section>
-      {/* aboutme */}
+      {/* About Me */}
       <div className="max-w-5xl mx-auto p-6 bg-white shadow-lg rounded-lg">
         <section className="mb-10">
           <h1 className="text-3xl md:text-4xl font-bold mb-4 text-[#161179]">
             About Me
           </h1>
           <p className="mb-3 text-gray-700 leading-relaxed">
-            I am Parvesh Ahamed, a Fullstack Developer passionate about building
-            scalable and efficient web applications. I completed my Master's in
-            Computer Science from Sadakathullah Appa College.
+            I am Parvesh Ahamed, a Fullstack Developer passionate about building scalable and efficient web applications. I completed my Master's in Computer Science from Sadakathullah Appa College.
           </p>
           <p className="mb-3 text-gray-700 leading-relaxed">
-            My expertise includes JavaScript, React, Angular, Node.js, MongoDB, and
-            modern frontend frameworks. I have hands-on experience with building
-            real-world applications and solving complex problems.
+            My expertise includes JavaScript, React, Angular, Node.js, MongoDB, and modern frontend frameworks. I have hands-on experience with building real-world applications and solving complex problems.
           </p>
           <p className="mb-3 text-gray-700 leading-relaxed">
-            I have earned multiple certifications and participated in various
-            hackathons and tech competitions, constantly honing my skills.
+            I have earned multiple certifications and participated in various hackathons and tech competitions, constantly honing my skills.
           </p>
         </section>
       </div>
-      {/* why me */}
+      {/* Why Me */}
       <section className="px-4 py-8 max-w-5xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#161179]">
           Why You Should Hire Me
         </h2>
         <div className="space-y-4">
           {accordionItems.map((item) => (
-            <div
-              key={item.id}
-              className="border border-gray-200 rounded-lg overflow-hidden"
-            >
+            <div key={item.id} className="border border-gray-200 rounded-lg overflow-hidden">
               <button
                 onClick={() => handleOpen(item.id)}
                 className="flex items-center justify-between w-full p-4 text-left text-gray-500 font-medium hover:bg-gray-100 focus:ring-4 focus:ring-gray-200"
@@ -166,15 +230,9 @@ const educationData = [
                   viewBox="0 0 24 24"
                   strokeWidth={2}
                   stroke="currentColor"
-                  className={`h-5 w-5 transition-transform ${
-                    open === item.id ? "rotate-180" : ""
-                  }`}
+                  className={`h-5 w-5 transition-transform ${open === item.id ? "rotate-180" : ""}`}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
               </button>
               <div
@@ -194,51 +252,16 @@ const educationData = [
           ))}
         </div>
       </section>
-      {/* skills */}
-      <Skills/>
-      {/* education */}
-      <section className="py-12 bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#161179]">
-          My Education
-        </h2>
-        <div className="relative">
-          {/* Vertical Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-[#161179] h-full"></div>
-          
-          {educationData.map((edu, index) => (
-            <div
-              key={index}
-              className={`flex items-center mb-8 ${
-                index % 2 === 0 ? "flex-row-reverse" : ""
-              }`}
-            >
-              {/* Timeline Content */}
-              <div
-                className={`w-5/12 p-6 rounded-xl shadow-lg bg-white hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ${
-                  index % 2 === 0 ? "ml-8" : "mr-8"
-                }`}
-              >
-                <div className="flex items-center mb-2">
-                  {edu.icon}
-                  <h3 className="ml-3 text-xl font-semibold text-gray-800">
-                    {edu.degree}
-                  </h3>
-                </div>
-                <p className="text-gray-600 font-medium">{edu.institution}</p>
-                <p className="text-gray-500">{edu.duration}</p>
-              </div>
-              
-              {/* Timeline Marker */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-[#161179] rounded-full border-4 border-white z-10"></div>
-              
-              {/* Spacer for alignment */}
-              <div className="w-5/12"></div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+      {/* Education */}
+      <Education educationRef={educationRef} />
+      {/* Skills */}
+      <Skills skillsRef={skillsRef} bgColor="bg-gray-50" />
+      {/* Achievements */}
+      {/* <Achievements achievementsRef={achievementsRef} /> */}
+      {/* Projects */}
+      {/* <Projects projectsRef={projectsRef} /> */}
+      {/* Contact */}
+      {/* <Contact contactRef={contactRef} /> */}
     </div>
   );
 }

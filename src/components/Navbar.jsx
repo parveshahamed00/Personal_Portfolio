@@ -4,17 +4,19 @@ import { Link } from "react-router-dom";
 function Navbar(props) {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const handleScroll = (e, scrollFn) => {
+    e.preventDefault();
+    if (scrollFn) scrollFn();
+    setMenuOpen(false); // Close mobile menu
+  };
+
   return (
-    <header
-      className={`w-full ${props.bgColor}  shadow-lg sticky top-0 left-0 z-50`}
-    >
+    <header className={`w-full ${props.bgColor} shadow-lg sticky top-0 left-0 z-50`}>
       <nav className="max-w-7xl mx-auto px-4 sm:flex sm:items-center sm:justify-between py-3">
         {/* Logo */}
         <div className="flex items-center justify-between">
           <Link to="/">
-            <h2
-              className={`text-xl font-bold font-serif ${props.navLogoColor}`}
-            >
+            <h2 className={`text-xl font-bold font-serif ${props.navLogoColor}`}>
               {"<PA/>"}
             </h2>
           </Link>
@@ -67,28 +69,32 @@ function Navbar(props) {
         >
           <a
             href="#skills"
+            onClick={(e) => handleScroll(e, props.scrollToSkills)}
             className={`block py-2 ${props.textColor} ${props.textHover}`}
           >
             Skills
           </a>
           <a
             href="#achievements"
+            onClick={(e) => handleScroll(e, props.scrollToAchievements)}
             className={`block py-2 ${props.textColor} ${props.textHover}`}
           >
             Achievements
           </a>
           <a
             href="#projects"
+            onClick={(e) => handleScroll(e, props.scrollToProjects)}
             className={`block py-2 ${props.textColor} ${props.textHover}`}
           >
             Projects
           </a>
           <a
-        href="#contact"
-        className={`block mt-2 sm:mt-0 ${props.btnBgColor} ${props.btnTextColor} ${props.btnHoverColor} px-4 py-2 rounded-md transition text-center`}
-      >
-        Contact Me
-      </a>
+            href="#contact"
+            onClick={(e) => handleScroll(e, props.scrollToContact)}
+            className={`block mt-2 sm:mt-0 ${props.btnBgColor} ${props.btnTextColor} ${props.btnHoverColor} px-4 py-2 rounded-md transition text-center`}
+          >
+            Contact Me
+          </a>
         </div>
       </nav>
     </header>

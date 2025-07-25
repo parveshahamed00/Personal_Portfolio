@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { SiTailwindcss, SiExpress, SiNextdotjs, SiMysql, SiPostgresql, SiMongodb } from "react-icons/si";
 
-const Skills = (props) => {
+const Skills = ({ bgColor, skillsRef }) => {
   const skills = [
     { name: "HTML", icon: <FaHtml5 className="text-4xl text-orange-600" />, color: "bg-orange-100" },
     { name: "CSS", icon: <FaCss3Alt className="text-4xl text-blue-600" />, color: "bg-blue-100" },
@@ -27,7 +27,7 @@ const Skills = (props) => {
   ];
 
   return (
-    <section className={`py-12 ${props.bgColor}`}>
+    <section ref={skillsRef} className={`py-12 ${bgColor || "bg-gray-50"}`}>
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-[#161179]">
           My Skills
