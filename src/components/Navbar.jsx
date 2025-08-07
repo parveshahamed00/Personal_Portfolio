@@ -81,13 +81,7 @@ function Navbar(props) {
           >
             Achievements
           </a>
-          <a
-            href="#projects"
-            onClick={(e) => handleScroll(e, props.scrollToProjects)}
-            className={`block py-2 ${props.textColor} ${props.textHover}`}
-          >
-            Projects
-          </a>
+      
           <a
             href="#contact"
             onClick={(e) => handleScroll(e, props.scrollToContact)}

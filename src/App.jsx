@@ -7,10 +7,10 @@ import Stalker from "./pages/Stalker";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/hr" element={<Hr />} />
+      <Route path="/" element={<Hr />} />
+      {/* <Route path="/hr" element={<Hr />} />
       <Route path="/developer" element={<Dev />} />
-      <Route path="/stalker" element={<Stalker />} />
+      <Route path="/stalker" element={<Stalker />} /> */}
     </Routes>
   );
 }

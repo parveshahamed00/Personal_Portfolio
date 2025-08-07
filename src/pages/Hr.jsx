@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar";
 import Skills from "../components/Skills";
 import { FaDownload, FaGraduationCap, FaSchool } from "react-icons/fa";
 import { SiBookstack } from "react-icons/si";
+import Achievements from "../components/Achievements";
+import Contact from "../components/Contact";
 
 // Education Component
 const Education = ({ educationRef }) => {
@@ -66,7 +68,6 @@ function Hr() {
   const skillsRef = useRef(null);
   const educationRef = useRef(null);
   const achievementsRef = useRef(null);
-  const projectsRef = useRef(null);
   const contactRef = useRef(null);
 
   const scrollToSkills = () => {
@@ -75,11 +76,7 @@ function Hr() {
     }
   };
 
-  const scrollToEducation = () => {
-    if (educationRef.current) {
-      educationRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+ 
 
   const scrollToAchievements = () => {
     if (achievementsRef.current) {
@@ -87,11 +84,7 @@ function Hr() {
     }
   };
 
-  const scrollToProjects = () => {
-    if (projectsRef.current) {
-      projectsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+ 
 
   const scrollToContact = () => {
     if (contactRef.current) {
@@ -165,7 +158,6 @@ function Hr() {
         btnHoverColor="hover:bg-blue-700 hover:text-white"
         scrollToSkills={scrollToSkills}
         scrollToAchievements={scrollToAchievements}
-        scrollToProjects={scrollToProjects}
         scrollToContact={scrollToContact}
       />
       {/* Hero */}
@@ -258,10 +250,11 @@ function Hr() {
       <Skills skillsRef={skillsRef} bgColor="bg-gray-50" />
       {/* Achievements */}
       {/* <Achievements achievementsRef={achievementsRef} /> */}
+      <Achievements achievementsRef={achievementsRef}/>
       {/* Projects */}
       {/* <Projects projectsRef={projectsRef} /> */}
+      <Contact contactRef={contactRef} downloadResume={downloadAndOpenFile}/>
       {/* Contact */}
-      {/* <Contact contactRef={contactRef} /> */}
     </div>
   );
 }
