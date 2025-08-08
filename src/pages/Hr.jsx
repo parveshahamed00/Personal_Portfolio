@@ -40,7 +40,9 @@ const Education = ({ educationRef }) => {
           {educationData.map((edu, index) => (
             <div
               key={index}
-              className={`flex items-center mb-8 ${index % 2 === 0 ? "flex-row-reverse" : ""}`}
+              className={`flex items-center mb-8 ${
+                index % 2 === 0 ? "flex-row-reverse" : ""
+              }`}
             >
               <div
                 className={`w-5/12 p-6 rounded-xl shadow-lg bg-white hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ${
@@ -49,7 +51,9 @@ const Education = ({ educationRef }) => {
               >
                 <div className="flex items-center mb-2">
                   {edu.icon}
-                  <h3 className="ml-3 text-xl font-semibold text-gray-800">{edu.degree}</h3>
+                  <h3 className="ml-3 text-xl font-semibold text-gray-800">
+                    {edu.degree}
+                  </h3>
                 </div>
                 <p className="text-gray-600 font-medium">{edu.institution}</p>
                 <p className="text-gray-500">{edu.duration}</p>
@@ -76,15 +80,14 @@ function Hr() {
     }
   };
 
- 
-
   const scrollToAchievements = () => {
     if (achievementsRef.current) {
-      achievementsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      achievementsRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   };
-
- 
 
   const scrollToContact = () => {
     if (contactRef.current) {
@@ -112,9 +115,10 @@ function Hr() {
       id: 1,
       title: "Technical Expertise",
       content: [
-        "Proficient in modern JavaScript frameworks like React, Angular and Next.js",
-        "Skilled in building RESTful APIs with Node.js and Express",
-        "Experience with databases like MongoDB, Mysql and PostgreSQL",
+        "Proficient in JavaScript, React, Angular, Next.js, and TypeScript",
+        "Skilled in building RESTful APIs using Node.js, Express, and MongoDB",
+        "Experienced with SQL databases like MySQL and PostgreSQL",
+        "Strong focus on responsive UI, SEO optimization, and clean code practices",
       ],
     },
     {
@@ -170,11 +174,15 @@ function Hr() {
           />
         </div>
         <div className="text-center max-w-xl mx-auto sm:order-1">
-          <h1 style={{ lineHeight: "1.3" }} className="text-4xl md:text-5xl font-bold">
-            I am <span className="text-[#161179]">Parvesh Ahamed</span> thank you for visiting my profile
+          <h1
+            style={{ lineHeight: "1.3" }}
+            className="text-4xl md:text-5xl font-bold"
+          >
+            I am <span className="text-[#161179]">Parvesh Ahamed</span> thank
+            you for visiting my profile
           </h1>
           <p className="text-lg text-gray-600 mt-3">
-            Fullstack Developer. AI Enthusiast. UI Engineer.
+            Fullstack & Software Developer | AI Enthusiast | UI/UX Engineer |{" "}
           </p>
           <button
             onClick={downloadAndOpenFile}
@@ -193,13 +201,30 @@ function Hr() {
             About Me
           </h1>
           <p className="mb-3 text-gray-700 leading-relaxed">
-            I am Parvesh Ahamed, a Fullstack Developer passionate about building scalable and efficient web applications. I completed my Master's in Computer Science from Sadakathullah Appa College.
+            I am Parvesh Ahamed, an award-winning Fullstack and Software
+            Developer with a strong passion for building responsive, scalable,
+            and SEO-optimized web applications. I completed my schooling at Bell
+            School, followed by a Bachelor's in Information Technology and a
+            Master's in Computer Science from Sadakathullah Appa College.
           </p>
           <p className="mb-3 text-gray-700 leading-relaxed">
-            My expertise includes JavaScript, React, Angular, Node.js, MongoDB, and modern frontend frameworks. I have hands-on experience with building real-world applications and solving complex problems.
+            My technical expertise spans JavaScript, React, Angular, Node.js,
+            TypeScript, Python, Java, MongoDB, SQL, and the MERN stack. I also
+            have solid experience with HTML, CSS, Bootstrap, and modern frontend
+            tools like Next.js. As a UI-focused engineer, I ensure every
+            interface is user-friendly and accessible.
           </p>
           <p className="mb-3 text-gray-700 leading-relaxed">
-            I have earned multiple certifications and participated in various hackathons and tech competitions, constantly honing my skills.
+            I am proficient in version control (Git), bundling tools (Webpack),
+            and deployment processes, enabling me to ship efficient and
+            maintainable code. My dedication to continuous learning and
+            problem-solving is reflected in my certifications, successful
+            hackathon participation, and recognition in web design competitions.
+          </p>
+          <p className="mb-3 text-gray-700 leading-relaxed">
+            With a focus on performance, SEO best practices, and clean
+            architecture, I strive to build digital solutions that deliver great
+            user experience and business impact.
           </p>
         </section>
       </div>
@@ -210,7 +235,10 @@ function Hr() {
         </h2>
         <div className="space-y-4">
           {accordionItems.map((item) => (
-            <div key={item.id} className="border border-gray-200 rounded-lg overflow-hidden">
+            <div
+              key={item.id}
+              className="border border-gray-200 rounded-lg overflow-hidden"
+            >
               <button
                 onClick={() => handleOpen(item.id)}
                 className="flex items-center justify-between w-full p-4 text-left text-gray-500 font-medium hover:bg-gray-100 focus:ring-4 focus:ring-gray-200"
@@ -222,9 +250,15 @@ function Hr() {
                   viewBox="0 0 24 24"
                   strokeWidth={2}
                   stroke="currentColor"
-                  className={`h-5 w-5 transition-transform ${open === item.id ? "rotate-180" : ""}`}
+                  className={`h-5 w-5 transition-transform ${
+                    open === item.id ? "rotate-180" : ""
+                  }`}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
                 </svg>
               </button>
               <div
@@ -250,10 +284,10 @@ function Hr() {
       <Skills skillsRef={skillsRef} bgColor="bg-gray-50" />
       {/* Achievements */}
       {/* <Achievements achievementsRef={achievementsRef} /> */}
-      <Achievements achievementsRef={achievementsRef}/>
+      <Achievements achievementsRef={achievementsRef} />
       {/* Projects */}
       {/* <Projects projectsRef={projectsRef} /> */}
-      <Contact contactRef={contactRef} downloadResume={downloadAndOpenFile}/>
+      <Contact contactRef={contactRef} downloadResume={downloadAndOpenFile} />
       {/* Contact */}
     </div>
   );
