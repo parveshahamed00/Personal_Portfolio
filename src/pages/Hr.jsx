@@ -5,6 +5,7 @@ import { FaDownload, FaGraduationCap, FaSchool } from "react-icons/fa";
 import { SiBookstack } from "react-icons/si";
 import Achievements from "../components/Achievements";
 import Contact from "../components/Contact";
+import Experience from "../components/Experience";
 
 // Education Component
 const Education = ({ educationRef }) => {
@@ -278,6 +279,8 @@ function Hr() {
           ))}
         </div>
       </section>
+{/* Experience */}
+<Experience/>
       {/* Education */}
       <Education educationRef={educationRef} />
       {/* Skills */}
