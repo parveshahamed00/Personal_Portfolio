@@ -15,7 +15,7 @@ Designed with a unique role-based entry experience for HR, Developers, and casua
 
 ## 🔗 Live 
 
-[🟢 Click Me to View the Live Site](https://personal-portfolio-gamma-nine-42.vercel.app/)
+[🟢 Click Me to View the Live Site](https://parveshahamed-portfolio.vercel.app/)
 
 ---
 
